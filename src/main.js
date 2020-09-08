@@ -2,6 +2,16 @@ import ToyReact from './toy-react'
 import ToyReactDOM, { Component } from './toy-reactDOM'
 
 class MyComponent extends Component {
+    constructor() {
+        super()
+        this.state = {
+            date: new Date().getTime(),
+            format: 'timestamp',
+            deep: {
+                data: 'apple'
+            }
+        }
+    }
     render() {
         return <div>
             <h1>123</h1>
@@ -11,7 +21,17 @@ class MyComponent extends Component {
                 <li>666</li>
             </ul>
             <h2>{this.props.aa}</h2>
+            <h3>{this.state.date}</h3>
+            {this.state.deep.data}
             {this.props.children}
+            <button onClick={() => {
+                this.setState({
+                    date: new Date().getTime(),
+                    deep: {
+                        data: 'banana'
+                    }
+                })
+            }}>update {this.state.format}</button>
         </div>
     }
 }

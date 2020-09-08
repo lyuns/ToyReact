@@ -1,7 +1,7 @@
 const config = {
     mode: 'development',
     entry: {
-        main: './src/main.js'
+        main: './src/ttt.js'
     },
     module: {
         rules: [
